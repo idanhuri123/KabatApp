@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./CSS/sign.css">
+	<link rel="stylesheet" href="./CSS/handwriting.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="./JS/html2canvas.min.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script src="./JS/handwriting.js"></script>
+	<script defer src="./JS/main.js"></script>
+	<title>חתימה מסמכים</title>
+</head>
+
+<body id="hdwrite-body">
+
+	<div class="page">
+		<header>
+			<div class="header">
+				<img src="./ASSETS/logo.png" alt="Logo" class="logo">
+
+			</div>
+			<br />
+			<hr>
+			<div class="date">
+				<span id="inputdate"></span>
+			</div>
+			<div class="textTo">
+				<span>אל: קב"ט טלדור</span>
+			</div>
+			<div class="titlePage">
+				<h2>טופס הוצאת תג</h2>
+			</div>
+		</header>
+		<main>
+			<p>אבקש להנפיק תג לפי הנתונים הבאים:</p>
+			<p>סוג תג:(יש לבחור אחד בלבד)</p>
+			
+			<table class="center">
+				<tr>
+					<th>עובד</th>
+					<th>קבלן</th>
+					<th>מבקר</th>
+					<th>ספק</th>
+					<th>אורח</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="typeEmloy" value="עובד" title="עובד">
+					</td>
+					<td>
+						<input type="radio" name="typeEmloy" value="קבלן" title="קבלן">
+					</td>
+					<td>
+						<input type="radio" name="typeEmloy" value="מבקר" title="מבקר">
+					</td>
+					<td>
+						<input type="radio" name="typeEmloy" value="ספק" title="ספק">
+					</td>
+					<td>
+						<input type="radio" name="typeEmloy" value="אורח" title="אורח">
+					</td>
+				</tr>
+			</table>
+			<p>אישור כניסה ל:(יש לבחור לפחות אחד)</p>
+			<table class="center">
+				<tr>
+					<th>קומה 6</th>
+					<th>קומה 7</th>
+					<th>בטחוני</th>
+					<th>שופרסל</th>
+					<th>אפעל 3 פ"ת</th>
+					<th>שירותים מנוהלים</th>
+					<th>אשקלון אגף הסריקה</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" name="typeEmloy" value="קומה 6" title="קומה 6">
+					</td>
+					<td>
+						<input type="checkbox" name="typeEmloy" value="קומה 7" title="קומה 7">
+					</td>
+					<td>
+						<input type="checkbox" name="typeEmloy" value="בטחוני" title="בטחוני">
+					</td>
+					<td>
+						<input type="checkbox" name="typeEmloy" value="שופרסל" title="שופרסל">
+					</td>
+					<td>
+						<input type="checkbox" name="typeEmloy" value="אפעל 3 פתח תקוווה" title="אפעל 3 פתח תקווה">
+					</td>
+					<td>
+						<input type="checkbox" name="typeEmloy" value="שירותים מנוהלים" title="שירותים מנוהלים">
+					</td>
+					<td>
+						<input type="checkbox" name="typeEmloy" value="אשקלון אגף הסריקה" title="אשקלון אגף הסריקה">
+					</td>
+				</tr>
+			</table>
+			<p>פרטי העובד</p>
+			<table class="center">
+				<tr>
+					<td>
+						<span>העלאת תמונת עם הפנים של העובד </span>
+						<br />
+						<input type='file' onchange="readURL(this);" />
+	
+					</td>
+					<td>
+						<img id="blah" src="#" alt="your image" />
+					</td>
+				</tr>
+				<tr>
+					<td>שם בעל התג:</td>
+					<td><input id="nameE" type="text" onchange="declaration()" min="2" required></td>
+				</tr>
+				<tr>
+					<td>תעודת זהות:</td>
+					<td><input id="tz" type="text" min="9" required></td>
+				</tr>
+				<tr>
+					<td>חטיבה:</td>
+					<td><input id="regiment" type="text" min="2" required></td>
+				</tr>
+				<tr>
+					<td>טלפון נייד:</td>
+					<td><input id="phone" type="text" min="10" required></td>
+				</tr>
+				<tr>
+					<td>טלפון:</td>
+					<td><input type="text"></td>
+				</tr>
+				<tr>
+					<td>שם המאשר:</td>
+					<td><input id="agre" type="text" min="2" required></td>
+				</tr>
+			</table>
+		</main>
+		<hr>
+		<footer style="text-align: center;">
+			<sapn class="titlePage ">הצהרת עובד</sapn>
+			<p id="declaration">
+			</p>
+	
+			<canvas id="mycanvas" width="400px" height="150px"></canvas>
+			<br />
+			<span style="color: red;"> אחרי הורדת המסמך יש לשלוח למייל kabat@teldor.co.il </span>
+			<div class="row">
+				<div class="col-md-12">
+					<input id="download" type="button" value="הורדת מסמך" />
+					<input id="clear" type="button" value="נקה מסמך" />
+	
+					<img id="hdwrite-image"></img>
+					<a id="link"></a>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+
+ 
+
+		<!-- </form> -->
+	</main>
+
+</body>
+
+</html>

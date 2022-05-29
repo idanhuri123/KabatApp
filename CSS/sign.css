@@ -1,0 +1,57 @@
+html{
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+#mycanvas {
+    border: 2px dotted #CCCCCC;
+    border-radius: 15px;
+    cursor: crosshair;
+  }
+
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.page{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo{
+  text-align: right;
+}
+.date{
+  text-align: left;
+  font-size: x-large;
+}
+.textTo{
+  text-align: right;
+  font-size: x-large;
+  text-shadow: 1px 1px  gray;
+}
+.titlePage{
+  text-align: center;
+  text-decoration: underline;
+}
+p{
+  text-align: center;
+  font-size: large;
+}
+table ,tr{
+  text-align: center;
+  border: 1px solid black;
+}
+td{
+  text-align: center;
+  padding: 10px;
+  border: 1px solid black;
+}
+th{
+  text-align: center;
+  padding: 10px;
+  border: 1px solid black;
+}

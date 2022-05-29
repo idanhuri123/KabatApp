@@ -1,0 +1,12 @@
+/* body {background:#FAD0A0; font-family:Arial; font-size:1.2em; } */
+/* div {margin:30px; float:left; width:500px; height:500px;} */
+canvas {border:1px solid navy; background:#fff;}
+canvas:hover {cursor:crosshair;}
+input[type=text]{padding: 5px;text-align: center;}
+input[type=submit] {margin-top:10px; width:150px; padding:10px; background:gray; border:0; outline:none; color:#fff }
+input[type=submit]:hover {background:navy;}
+input[type=submit]#clear {margin-left:95px;}
+#hdwrite-image {display:none;background-color: #fff;}
+#h2canvas{display: none;}
+
+
